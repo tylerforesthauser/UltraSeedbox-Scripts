@@ -2,25 +2,18 @@
 #USB Mellow Installer
 #Written by Alpha#5000
 
-printf "\033[0;31mDisclaimer: This installer is unofficial and USB staff will not support any issues with it\033[0m\n"
-read -p "Type confirm if you wish to continue: " input
-if [ ! "$input" = "confirm" ]
-then
-        exit
-fi 
-
 IP=$(curl -s "https://ipinfo.io/ip")
 PORT=$(( 11000 + (($UID - 1000) * 50) + 30))
 
 if [ ! -d "$HOME/.nvm" ]
 then
     echo "Installing Node..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-    nvm install 10.16.2 --latest-npm
-    nvm alias default 10.16.2
+    nvm install 13.6.0 --latest-npm
+    nvm alias default 13.6.0
     nvm use default
 else
     echo "Node already installed. Skipping..."
