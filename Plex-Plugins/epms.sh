@@ -3,13 +3,13 @@
 plugindir=$HOME/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Plug-ins/
 scannerdir=$HOME/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Scanners/Series
 
-if [ -f "$HOME/.config/plex/" ];
+if [ ! -f "$HOME/.config/plex/" ];
 then
     echo "Plex is not installed. Exiting..."
     exit
 fi
 
-if [[ -f "$scannerdir/Extended Personal Media Scanner.py" && -d "$plugindir/extendedpersonalmedia-agent.bundle" ]];
+if [[ -f "$scannerdir/Extended Personal Media Scanner.py" && -d "$plugindir/extendedpersonalmedia-agent.bundle/" ]];
 then
     echo "EPMS found. Upgrading..."
     rm -rf "$scannerdir/Extended Personal Media Scanner.py" 
