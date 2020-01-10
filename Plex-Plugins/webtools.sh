@@ -2,7 +2,7 @@
 
 plugindir=~/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Plug-ins/
 
-if [ -f "$HOME/.config/plex/" ];
+if [ ! -f "$HOME/.config/plex/" ];
 then
     echo "Plex is not installed. Exiting..."
     exit
