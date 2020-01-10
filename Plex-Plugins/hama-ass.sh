@@ -4,7 +4,7 @@ plugindir=$HOME/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Pl
 scannerdir=$HOME/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Scanners/Series
 supportdir=$HOME/.config/plex/Library/Application\ Support/Plex\ Media\ Server/Plug-in\ Support/Data/com.plexapp.agents.hama/DataItems/
 
-if [ ! -f "$HOME/.config/plex/" ];
+if [ ! -d "$HOME/.config/plex/" ];
 then
     echo "Plex is not installed. Exiting..."
     exit
