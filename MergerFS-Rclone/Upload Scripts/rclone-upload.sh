@@ -1,11 +1,12 @@
 #!/bin/bash
 
 lock_file="$HOME/rclone.lock"
+name=rclone
 
-trap "rm -f $lock_file; exit 0" SIGINT SIGTERM
+trap 'rm -f "$lock_file"; exit 0' SIGINT SIGTERM
 if [ -e "$lock_file" ]
 then
-    echo "$base_name is already running."
+    echo "$name is already running."
     exit
 else
     touch "$lock_file"
