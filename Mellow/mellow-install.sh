@@ -21,7 +21,7 @@ fi
 
 echo "Installing Mellow..."
 git clone -b develop "https://github.com/v0idp/Mellow.git" ~/.apps/mellow
-cd ~/.apps/mellow
+cd "$HOME/.apps/mellow" || exit
 npm install --loglevel=silent
 
 echo "Configuring Mellow..."
@@ -38,20 +38,20 @@ Type=simple
 Restart=on-failure
 RestartSec=10
 WorkingDirectory=$HOME/.apps/mellow
-ExecStart=$(which node) src/index.js
+ExecStart=$(command -v node) src/index.js
 
 [Install]
-WantedBy=default.target" >> $HOME/.config/systemd/user/mellow.service
+WantedBy=default.target" >> "$HOME/.config/systemd/user/mellow.service"
 systemctl --user daemon-reload
 systemctl --user enable mellow
 
-loginctl enable-linger $USER
+loginctl enable-linger "$USER"
 
 echo "Starting Mellow..."
 systemctl --user start mellow
 
 echo "Downloading Uninstaller..."
-cd ~
+cd "$HOME" || exit
 wget -q https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh
 chmod +x mellow-uninstall.sh
 
