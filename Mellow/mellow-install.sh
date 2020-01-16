@@ -55,4 +55,5 @@ rm -- "$0"
 
 printf "\033[0;32mDone!\033[0m\n"
 echo "Access your Mellow installation at http://$IP:$PORT"
+echo "Run curl https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-upgrade.sh | bash to uninstall."
 echo "Run curl https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh | bash to uninstall."
