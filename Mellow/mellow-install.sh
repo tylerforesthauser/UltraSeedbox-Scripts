@@ -20,12 +20,12 @@ else
 fi
 
 echo "Installing Mellow..."
-git clone -b develop "https://github.com/v0idp/Mellow.git" ~/.apps/mellow
+git clone "https://github.com/v0idp/Mellow.git" ~/.apps/mellow
 cd "$HOME/.apps/mellow" || exit
 npm install --loglevel=silent
 
 echo "Configuring Mellow..."
-sed -i "s/5060/$PORT/g" ~/.apps/mellow/src/WebServer.js
+sed -i "s/5060/$PORT/g" "$HOME/.apps/mellow/src/WebServer.js"
 
 echo "Installing Service..."
 echo "[Unit]

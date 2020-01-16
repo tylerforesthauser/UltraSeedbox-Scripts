@@ -6,10 +6,10 @@ echo "Stopping Mellow..."
 systemctl --user stop mellow
 
 echo "Removing Files..."
-rm -rf ~/.apps/mellow
+rm -rf "$HOME/.apps/mellow"
 
 echo "Removing Service..."
-rm ~/.config/systemd/user/mellow.service
+rm "$HOME/.config/systemd/user/mellow.service"
 systemctl --user daemon-reload
 
 echo "Cleaning Up..."
