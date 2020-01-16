@@ -50,14 +50,9 @@ loginctl enable-linger "$USER"
 echo "Starting Mellow..."
 systemctl --user start mellow
 
-echo "Downloading Uninstaller..."
-cd "$HOME" || exit
-wget -q https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh
-chmod +x mellow-uninstall.sh
-
 echo "Cleaning Up..."
 rm -- "$0"
 
 printf "\033[0;32mDone!\033[0m\n"
 echo "Access your Mellow installation at http://$IP:$PORT"
-echo "Run ./mellow-uninstall.sh to uninstall"
+echo "Run curl https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh | bash to uninstall."
