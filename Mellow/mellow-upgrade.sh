@@ -2,6 +2,8 @@
 
 if [ -d "$HOME/.apps/mellow" ]
 then
+    echo "Upgrading node..."
+    npm update -g
     echo "Upgrading mellow..."
     systemctl --user stop mellow.service
     cd "$HOME/.apps/mellow" || exit
