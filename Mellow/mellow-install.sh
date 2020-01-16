@@ -53,7 +53,13 @@ systemctl --user start mellow
 echo "Cleaning Up..."
 rm -- "$0"
 
+echo "Downloading Upgrade and Uninstall scripts..."
+wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh
+wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-upgrade.sh
+chmod +x mellow-uninstall.sh
+chmod +x mellow-upgrade.sh
+
 printf "\033[0;32mDone!\033[0m\n"
 echo "Access your Mellow installation at http://$IP:$PORT"
-echo "Run curl https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-upgrade.sh | bash to upgrade."
-echo "Run curl https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh | bash to uninstall."
+echo "Run ./mellow-upgrade.sh to upgrade."
+echo "Run ./mellow-uninstall.sh to uninstall."
