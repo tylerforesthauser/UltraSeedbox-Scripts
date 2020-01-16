@@ -20,7 +20,7 @@ else
 fi
 
 echo "Installing Mellow..."
-git clone "https://github.com/v0idp/Mellow.git" ~/.apps/mellow
+git clone "https://github.com/v0idp/Mellow.git" "$HOME/.apps/mellow"
 cd "$HOME/.apps/mellow" || exit
 npm install --loglevel=silent
 
@@ -50,14 +50,15 @@ loginctl enable-linger "$USER"
 echo "Starting Mellow..."
 systemctl --user start mellow
 
-echo "Cleaning Up..."
-rm -- "$0"
-
 echo "Downloading Upgrade and Uninstall scripts..."
+cd "$HOME" || exit
 wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-uninstall.sh
 wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/Mellow/mellow-upgrade.sh
 chmod +x mellow-uninstall.sh
 chmod +x mellow-upgrade.sh
+
+echo "Cleaning Up..."
+rm -- "$0"
 
 printf "\033[0;32mDone!\033[0m\n"
 echo "Access your Mellow installation at http://$IP:$PORT"
