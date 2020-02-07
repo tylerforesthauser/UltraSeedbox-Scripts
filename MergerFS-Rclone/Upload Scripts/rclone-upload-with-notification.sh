@@ -41,6 +41,7 @@ else
       --transfers=2 \
       --checkers=4 \
       --bwlimit=8M \
+      --drive-stop-on-upload-limit \
       "$SOURCE_DIR" "$DESTINATION_DIR" 2>&1
     )
     # "--stats=9999m" mitigates early stats output 
