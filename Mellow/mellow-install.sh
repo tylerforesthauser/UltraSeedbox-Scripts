@@ -2,6 +2,13 @@
 #USB Mellow Installer
 #Written by Alpha#5000
 
+printf "\033[0;31mDisclaimer: This installer is unofficial and USB staff will not support any issues with it\033[0m\n"
+read -p "Type confirm if you wish to continue: " input
+if [ ! "$input" = "confirm" ]
+then
+        exit
+fi
+
 IP=$(curl -s "https://ipinfo.io/ip")
 PORT=$(( 11000 + (($UID - 1000) * 50) + 30))
 
