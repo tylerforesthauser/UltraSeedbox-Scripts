@@ -23,7 +23,8 @@ then
     nvm alias default 13.6.0
     nvm use default
 else
-    echo "Node already installed. Skipping..."
+    echo "Upgrading node..."
+    npm update -g
 fi
 
 echo "Installing Mellow..."
@@ -32,7 +33,7 @@ cd "$HOME/.apps/mellow" || exit
 npm install --loglevel=silent
 
 echo "Configuring Mellow..."
-sed -i "s/5060/$PORT/g" "$HOME/.apps/mellow/src/WebServer.js"
+sed -i "s/5060/$PORT/g" "$HOME/.apps/mellow/src/web/WebServer.js"
 
 echo "Installing Service..."
 echo "[Unit]
