@@ -6,7 +6,7 @@ printf "\033[0;31mDisclaimer: This installer is unofficial and USB staff will no
 read -r -p "Type confirm if you wish to continue: " input
 if [ ! "$input" = "confirm" ]
 then
-        exit
+    exit
 fi
 
 IP=$(curl -s "https://ipinfo.io/ip")
