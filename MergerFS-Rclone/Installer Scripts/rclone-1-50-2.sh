@@ -8,7 +8,7 @@ else
     echo "Installing/Upgrading to rclone 1.50.2..."
     mkdir -p "$HOME"/.rclone-tmp
     cd "$HOME"/.rclone-tmp || exit
-    wget -O rclone-v1.50.2-linux-amd64.zip https://downloads.rclone.org/rclone-v1.50.2-linux-amd64.zip
+    wget -O rclone-v1.50.2-linux-amd64.zip https://downloads.rclone.org/v1.50.2/rclone-v1.50.2-linux-amd64.zip
     unzip rclone-v1.50.2-linux-amd64.zip
     cp rclone-v*/rclone ~/bin
     cd "$HOME" || exit
