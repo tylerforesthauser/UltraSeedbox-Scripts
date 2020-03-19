@@ -16,5 +16,6 @@ else
     echo "Done."
     command -v mergerfs
     mergerfs -v
+    echo "Install done. Restart all mergerfs mounts."
     exit
 fi
