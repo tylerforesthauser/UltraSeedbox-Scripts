@@ -9,7 +9,7 @@ then
 else
     echo "mergerfs is installing/upgrading..."
     mkdir -p "$HOME"/tmp
-    wget https://github.com/trapexit/mergerfs/releases/download/${mgversion}/mergerfs_${mgversion}.debian-stretch_amd64.deb -O "$HOME"/tmp/mergerfs.deb
+    wget https://github.com/trapexit/mergerfs/releases/download/"${mgversion}"/mergerfs_"${mgversion}".debian-stretch_amd64.deb -O "$HOME"/tmp/mergerfs.deb
     dpkg -x "$HOME"/tmp/mergerfs.deb "$HOME"/tmp
     mv "$HOME"/tmp/usr/bin/* "$HOME"/bin
     rm -rf "$HOME"/tmp
