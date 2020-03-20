@@ -30,5 +30,9 @@ else
     rm -rf "$HOME"/tmp
     command -v mergerfs
     mergerfs -v
-    exit
+    mkdir -p "$HOME"/scripts
+    cd "$HOME"/scripts || exit
+    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone%201.50.2/rclone-upload.sh
+    chmod +x rclone-upload.sh
+    readlink -f rclone-upload.sh
 fi
