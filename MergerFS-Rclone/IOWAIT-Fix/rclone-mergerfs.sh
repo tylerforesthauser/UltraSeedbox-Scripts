@@ -32,7 +32,7 @@ else
     mergerfs -v
     mkdir -p "$HOME"/scripts
     cd "$HOME"/scripts || exit
-    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone%201.50.2/rclone-upload.sh
+    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/upload%20script/rclone-upload.sh
     chmod +x rclone-upload.sh
     readlink -f rclone-upload.sh
 fi
