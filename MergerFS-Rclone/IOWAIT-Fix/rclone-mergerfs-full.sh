@@ -51,9 +51,9 @@ echo "Done. Downloading service files..."
 
 echo "Done. Edit the rclone-vfs systemd file according to the absolute path."
 echo "Displayed below is your seedbox's absolute path."
-echo "==============="
+echo "=================="
 echo "$HOME"
-echo "==============="
+echo "=================="
 echo "Replace all /homexx/yyyyy with $HOME"
 echo "Make sure you replace those only or service file will fail."
 echo "Once that's done, save it by doing CTRL + O"
@@ -64,9 +64,9 @@ nano "$HOME"/.config/systemd/user/rclone-vfs.service
 
 echo "Done. Edit the meergerfs systemd file according to the absolute path."
 echo "Displayed below is your seedbox's absolute path."
-echo "==============="
+echo "=================="
 echo "$HOME"
-echo "==============="
+echo "=================="
 echo "Replace all /homexx/yyyyy with $HOME"
 echo "Make sure you replace those only or service file will fail."
 echo "Once that's done, save it by doing CTRL + O"
@@ -87,9 +87,13 @@ echo "Also removing any existing upload scripts..."
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone-upload.sh
     chmod +x rclone-upload.sh
 
-echo "Done. The full path of the upload script is shown below. Add this to your crontab."
-echo "========================="
+echo "Done. The full path of the upload script is shown below."
+echo "========================================="
 echo "$HOME"/scripts/rclone-upload.sh
-echo "========================="
+echo "========================================="
+echo "Add this to your crontab by doing crontab -e and add the following (assuming you want daily run)"
+echo "============================================================"
+echo "@daily $HOME/scripts/rclone-upload.sh > /dev/null 2>&1"
+echo "============================================================"
 echo "Enjoy"
 exit
