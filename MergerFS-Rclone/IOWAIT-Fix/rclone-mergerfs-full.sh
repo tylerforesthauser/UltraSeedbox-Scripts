@@ -25,6 +25,7 @@ echo "Installing rclone..."
     rm -rf "$HOME"/.rclone-tmp
     command -v rclone
     rclone version
+    sleep 2
 echo "Done. Installing mergerfs..."
     sleep 3
     mkdir -p "$HOME"/tmp
@@ -34,6 +35,7 @@ echo "Done. Installing mergerfs..."
     rm -rf "$HOME"/tmp
     command -v mergerfs
     mergerfs -v
+    sleep 2
 echo "Done. Downloading service files..."
     sleep 3
     cd "$HOME"/.config/systemd/user || exit
@@ -49,6 +51,7 @@ echo "Starting services..."
 
 echo "Downloading upload script...."
 echo "Also removing any existing upload scripts..."
+    sleep 3
     cd "$HOME"/scripts || exit
     rm rclone*
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone-upload.sh
