@@ -20,7 +20,7 @@ echo "Installing rclone..."
     cd "$HOME"/.rclone-tmp || exit
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/rclone%20binary/rclone-1.51.1-linux-amd64.zip
     unzip rclone-1.51.1-linux-amd64.zip
-    cp rclone-v*/rclone "$HOME"/bin
+    cp rclone-*/rclone "$HOME"/bin
     cd "$HOME" || exit
     rm -rf "$HOME"/.rclone-tmp
     command -v rclone
