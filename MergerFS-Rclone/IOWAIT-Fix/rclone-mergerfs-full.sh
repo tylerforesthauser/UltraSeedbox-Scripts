@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if pgrep "rclone" && pgrep "mergerfs";
-then
-    echo "Rclone and/or mergerfs is running. Please close all instances before proceeding."
-    echo "Make sure all apps that are connected to MergerFS are stopped before running this again"
-    exit
-else
-    echo "Continuing installation..."
-    sleep 2
-fi
-
 echo "Creating necessary folders..."
     mkdir -p "$HOME"/Stuff
     mkdir -p "$HOME"/Stuff/Local
