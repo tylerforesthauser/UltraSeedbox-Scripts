@@ -14,7 +14,7 @@ echo "Stopping service files..."
 echo "Removing service files..."
     cd "$HOME"/.config/systemd/user || exit
     rm rclone*
-    rm mergerfs
+    rm mergerfs*
 echo "Installing rclone..."
     mkdir -p "$HOME"/.rclone-tmp
     cd "$HOME"/.rclone-tmp || exit
@@ -36,8 +36,9 @@ echo "Done. Installing mergerfs..."
     mergerfs -v
 echo "Done. Downloading service files..."
     sleep 3
-    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/Service%20Files/rclone-vfs.service "$HOME"/.config/systemd/user
-    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Service%20Files/mergerfs.service "$HOME"/.config/systemd/user
+    cd "$HOME"/.config/systemd/user || exit
+    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/Service%20Files/rclone-vfs.service
+    wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Service%20Files/mergerfs.service 
     sed -i "s#/homexx/yyyyy#$HOME#g" "$HOME"/.config/systemd/user/rclone-vfs.service
     sed -i "s#/homexx/yyyyy#$HOME#g" "$HOME"/.config/systemd/user/mergerfs.service
 
@@ -62,4 +63,5 @@ echo "============================================================"
 echo "@daily $HOME/scripts/rclone-upload.sh > /dev/null 2>&1"
 echo "============================================================"
 echo "Enjoy"
+cd "$HOME" || exit
 exit
