@@ -7,27 +7,36 @@ echo "Creating necessary folders..."
     mkdir -p "$HOME"/MergerFS
     mkdir -p "$HOME"/scripts
     mkdir -p "$HOME"/.config/systemd/user
+
 echo "Stopping service files..."
     systemctl --user disable --now mergerfs.service
     systemctl --user disable --now rclone-vfs.service
     systemctl --user disable --now rclone-normal.service
-echo "Removing service files..."
+
+echo "Killing all rclone/meergerfs instances..."
+    killall rclone
+    killall mergerfs
+
+echo "Removing service files and old binaries..."
     cd "$HOME"/.config/systemd/user || exit
     rm rclone*
     rm mergerfs*
+    cd "$HOME"/bin || exit
+    rm rclone
+    rm mergerfs
+
 echo "Installing rclone..."
     mkdir -p "$HOME"/.rclone-tmp
     cd "$HOME"/.rclone-tmp || exit
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/rclone%20binary/rclone-1.51.1-linux-amd64.zip
     unzip rclone-1.51.1-linux-amd64.zip
-    cp rclone-*/rclone "$HOME"/bin
+    cp "$HOME"/.rclone-tmp/rclone-1.51.1-linux-amd64/rclone "$HOME"/bin
     cd "$HOME" || exit
     rm -rf "$HOME"/.rclone-tmp
     command -v rclone
     rclone version
-    sleep 2
+
 echo "Done. Installing mergerfs..."
-    sleep 3
     mkdir -p "$HOME"/tmp
     wget https://github.com/trapexit/mergerfs/releases/download/2.28.3/mergerfs_2.28.3.debian-stretch_amd64.deb -P "$HOME"/tmp
     dpkg -x "$HOME"/tmp/mergerfs_2.28.3.debian-stretch_amd64.deb "$HOME"/tmp
@@ -35,9 +44,8 @@ echo "Done. Installing mergerfs..."
     rm -rf "$HOME"/tmp
     command -v mergerfs
     mergerfs -v
-    sleep 2
+
 echo "Done. Downloading service files..."
-    sleep 3
     cd "$HOME"/.config/systemd/user || exit
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/Service%20Files/rclone-vfs.service
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Service%20Files/mergerfs.service 
@@ -51,7 +59,6 @@ echo "Starting services..."
 
 echo "Downloading upload script...."
 echo "Also removing any existing upload scripts..."
-    sleep 3
     cd "$HOME"/scripts || exit
     rm rclone*
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone-upload.sh
