@@ -1,12 +1,11 @@
 #!/bin/bash
 
-lock_file="$HOME/scripts/rclone.lock"
-name=rclone
+lock_file="$HOME/scripts/rclone-upload.lock"
 
 trap 'rm -f "$lock_file"; exit 0' SIGINT SIGTERM
 if [ -e "$lock_file" ]
 then
-    echo "$name is already running."
+    echo "Rclone upload script is already running."
     exit
 else
     rm "$HOME"/scripts/rclone-upload.log
