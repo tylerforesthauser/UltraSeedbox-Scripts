@@ -6,7 +6,7 @@ echo "Creating necessary folders..."
     mkdir -p "$HOME"/Stuff/Mount
     mkdir -p "$HOME"/MergerFS
     mkdir -p "$HOME"/scripts
-    mkdir -p "$HOME"/.config/systemmd/user
+    mkdir -p "$HOME"/.config/systemd/user
 echo "Stopping service files..."
     systemctl --user disable --now mergerfs.service
     systemctl --user disable --now rclone-vfs.service
@@ -38,32 +38,8 @@ echo "Done. Downloading service files..."
     sleep 3
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/Service%20Files/rclone-vfs.service "$HOME"/.config/systemd/user
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Service%20Files/mergerfs.service "$HOME"/.config/systemd/user
-
-echo "Done. Edit the rclone-vfs systemd file according to the absolute path."
-echo "Displayed below is your seedbox's absolute path."
-echo "=================="
-echo "$HOME"
-echo "=================="
-echo "Replace all /homexx/yyyyy with $HOME"
-echo "Make sure you replace those only or service file will fail."
-echo "Once that's done, save it by doing CTRL + O"
-echo "Then exit by doing CTRL + X."
-echo "Installation will continue..."
-sleep 5
-nano "$HOME"/.config/systemd/user/rclone-vfs.service
-
-echo "Done. Edit the meergerfs systemd file according to the absolute path."
-echo "Displayed below is your seedbox's absolute path."
-echo "=================="
-echo "$HOME"
-echo "=================="
-echo "Replace all /homexx/yyyyy with $HOME"
-echo "Make sure you replace those only or service file will fail."
-echo "Once that's done, save it by doing CTRL + O"
-echo "Then exit by doing CTRL + X."
-echo "Installation will continue..."
-sleep 5
-nano "$HOME"/.config/systemd/user/mergerfs.service
+    sed -i "s#/homexx/yyyyy#$HOME#g" "$HOME"/.config/systemd/user/rclone-vfs.service
+    sed -i "s#/homexx/yyyyy#$HOME#g" "$HOME"/.config/systemd/user/mergerfs.service
 
 echo "Starting services..."
     systemctl --user daemon-reload
