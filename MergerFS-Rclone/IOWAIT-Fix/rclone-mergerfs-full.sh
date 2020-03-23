@@ -8,9 +8,9 @@ echo "Creating necessary folders..."
     mkdir -p "$HOME"/scripts
     mkdir -p "$HOME"/.config/systemmd/user
 echo "Stopping service files..."
+    systemctl --user disable --now mergerfs.service
     systemctl --user disable --now rclone-vfs.service
     systemctl --user disable --now rclone-normal.service
-    systemctl --user disable --now mergerfs.service
 echo "Removing service files..."
     cd "$HOME"/.config/systemd/user || exit
     rm rclone*
