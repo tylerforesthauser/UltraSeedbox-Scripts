@@ -81,13 +81,15 @@ echo "Starting services..."
     systemctl --user enable --now mergerfs.service
 
 echo "Downloading upload script...."
+echo "Also removing any existing upload scripts..."
     cd "$HOME"/scripts || exit
+    rm rclone*
     wget https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/Upload%20Scripts/rclone-upload.sh
     chmod +x rclone-upload.sh
 
 echo "Done. The full path of the upload script is shown below. Add this to your crontab."
 echo "========================="
-echo "$HOME"/scripts/rclone.sh
+echo "$HOME"/scripts/rclone-upload.sh
 echo "========================="
 echo "Enjoy"
 exit
