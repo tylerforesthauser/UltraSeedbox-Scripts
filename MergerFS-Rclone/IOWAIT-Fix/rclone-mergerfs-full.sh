@@ -18,7 +18,7 @@ echo "Removing service files..."
 echo "Installing rclone..."
     mkdir -p "$HOME"/.rclone-tmp
     cd "$HOME"/.rclone-tmp || exit
-    wget -O rclone-v1.50.2-linux-amd64.zip https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/rclone/rclone-1.51.1-linux-amd64.zip
+    wget -O rclone-1.51.1-linux-amd64.zip https://raw.githubusercontent.com/no5tyle/UltraSeedbox-Scripts/master/MergerFS-Rclone/IOWAIT-Fix/rclone/rclone-1.51.1-linux-amd64.zip
     unzip rclone-1.51.1-linux-amd64.zip
     cp rclone-v*/rclone "$HOME"/bin
     cd "$HOME" || exit
