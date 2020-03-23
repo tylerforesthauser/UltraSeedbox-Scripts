@@ -31,7 +31,7 @@ else
     rclone_command=$(
       "$HOME"/bin/rclone move -vP \
       --config="$HOME"/.config/rclone/rclone.conf \
-      --drive-chunk-size 128M \
+      --drive-chunk-size 64M \
       --use-mmap \
       --delete-empty-src-dirs \
       --fast-list \
